@@ -108,9 +108,10 @@ label {
 }
 
 footer {
+    
     background-color: gray;
     color: white;
-    padding: 15px;
+    padding: 0px;
     text-align: center;
     width: 100%;
     position: fixed;

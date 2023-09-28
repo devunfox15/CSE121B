@@ -15,12 +15,12 @@ document.querySelector('#addNumbers').addEventListener('click', addNumbers);
 /* Function Expression - Subtract Numbers */
 
 function subtract(number1, number2) {
-    return number1 + number2;
+    return number1 - number2;
 }
 function subtractNumbers(){
 let subtractNumber1 = Number(document.querySelector('#subtract1').value);
 let subtractNumber2 = Number(document.querySelector('#subtract2').value);
-document.querySelector('#difference').value = add(subtractNumber1, subtractNumber2);
+document.querySelector('#difference').value = subtract(subtractNumber1, subtractNumber2);
 }
 document.querySelector('#subtractNumbers').addEventListener('click', subtractNumbers);
 
@@ -37,33 +37,70 @@ document.querySelector('#multiplyNumbers').addEventListener('click', multiplyNum
 
 
 /* Open Function Use - Divide Numbers */
-const divide = (number1, number2) => {
+function divide(number1, number2) {
     if (number2 === 0) {
-        return "Cannot divide by zero!";
+        return "Cannot divide by Zero";
+    } else {
+        return number1 / number2;
     }
-    return number1 / number2;
-};
+}
 
 function divideNumbers() {
-    let divideNumber1 = Number(document.querySelector('#divide1').value);
-    let divideNumber2 = Number(document.querySelector('#divide2').value);
-    document.querySelector('#quotient').value = divide(divideNumber1, divideNumber2);
+    let dividend = Number(document.querySelector('#dividend').value);
+    let divisor = Number(document.querySelector('#divisor').value);
+    document.querySelector('#quotient').value = divide(dividend, divisor);
 }
+
 document.querySelector('#divideNumbers').addEventListener('click', divideNumbers);
 
-
 /* Decision Structure */
-
+var currentDate = new Date();
+var currentYear;
+currentYear = currentDate.getFullYear();
+document.getElementById("year").value = currentYear;
 
 /* ARRAY METHODS - Functional Programming */
+let numbersArray = [1,2,3,4,5,6,7,8,9,10,11,12,13];
 /* Output Source Array */
+var array = document.getElementById("array");
 
 /* Output Odds Only Array */
-
+var oddNumbers = numbersArray.filter(function(number) {
+    return number % 2 !== 0; // Check if the number is odd
+});
+var oddsElement = document.getElementById("odds");
+oddsElement.innerHTML = oddNumbers.join(", ");
 /* Output Evens Only Array */
+var evenNumbers = numbersArray.filter(function(number) {
+    return number % 2 === 0 ; // Check if the number is odd
+});
+var evens = document.getElementById("evens");
+evens.innerHTML = evenNumbers.join(", ");
 
 /* Output Sum of Org. Array */
+var sum = numbersArray.reduce(function(sum, add) {
+    return sum + add;
+}, 0); 
+var sumOfArrayElement = document.getElementById("sumOfArray");
+sumOfArrayElement.textContent = sum;
 
 /* Output Multiplied by 2 Array */
+var multipliedArray = numbersArray.map(number => number * 2);
+
+// Get the HTML element by ID
+var multipliedElement = document.getElementById("multiplied");
+
+// Set the innerHTML of the element to display the multiplied array
+multipliedElement.textContent = multipliedArray.join(", ");
 
 /* Output Sum of Multiplied by 2 Array */
+var multipliedArray = numbersArray.map(number => number * 2);
+
+// Use the reduce() method to sum the elements of the multiplied array
+var sumOfMultiplied = multipliedArray.reduce((sum, number) => sum + number);
+
+// Get the HTML element by ID
+var sumOfMultipliedElement = document.getElementById("sumOfMultiplied");
+
+// Set the innerHTML of the element to display the calculated sum
+sumOfMultipliedElement.textContent = sumOfMultiplied;
