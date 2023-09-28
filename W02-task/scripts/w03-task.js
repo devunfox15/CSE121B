@@ -61,8 +61,10 @@ document.getElementById("year").value = currentYear;
 
 /* ARRAY METHODS - Functional Programming */
 let numbersArray = [1,2,3,4,5,6,7,8,9,10,11,12,13];
+
 /* Output Source Array */
-var array = document.getElementById("array");
+var arrayDisplay = document.getElementById("array");
+arrayDisplay.innerText = numbersArray.toString();
 
 /* Output Odds Only Array */
 var oddNumbers = numbersArray.filter(function(number) {
