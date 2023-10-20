@@ -1,14 +1,81 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="finalprj.css">
     <title>Weather App</title>
-  </head>
-  <body>
-    <h1>Weather App</h1>
-    <input type="text" id="locationInput" placeholder="Enter a location">
-    <button id="getWeatherButton">Get Weather</button>
-    <div id="weatherInfo"></div>
-
-    <script src="fetch.js"></script>
-  </body>
+</head>
+<body>
+    <div class="container">
+        <div class="current-info">
+            <div class="date-container">
+                <div class="time" id="time">
+                    12:30 <span id="am-pm">PM</span>
+                </div>
+                <div class="date" id="date">
+                    Monday, October 23 
+                </div>
+                <div class="others" id="current-weather-items">
+                </div>
+            </div>
+            <div class="place-container">
+                <div class="time-zone" id="time-zone">TimeZone</div>
+                <div id="country" class="country">Location</div>
+            </div>
+        </div>
+    </div>
+    <div class="future-forecast">
+        <div class="today" id="current-temp">
+            <!-- provides icons to represent weather -->
+            <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon"> 
+            <!-- creating Today's base clase for weather -->
+            <div class="other">
+                <div>Today's Temperature</div>
+                <div class="day">Monday</div>
+                <div class="temp">Night - 0°F</div>
+                <div class="temp">Day - 0°F</div>
+            </div>
+        </div>
+        <!-- Creating all the other weeklyforecast -->
+        <div class="weather-forecast" id="weather-forecast">
+            <div class="weather-forecast-item">
+                <div class="day">Tue</div>
+                <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                <div class="temp">Night - 0°F</div>
+                <div class="temp">Day - 0°F</div>
+            </div>
+            <div class="weather-forecast-item">
+                <div class="day">Wed</div>
+                <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                <div class="temp">Night - 0°F</div>
+                <div class="temp">Day - 0°F</div>
+            </div>
+            <div class="weather-forecast-item">
+                <div class="day">Thur</div>
+                <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                <div class="temp">Night - 0°F</div>
+                <div class="temp">Day - 0°F</div>
+            </div>
+            <div class="weather-forecast-item">
+                <div class="day">Fri</div>
+                <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                <div class="temp">Night - 0°F</div>
+                <div class="temp">Day - 0°F</div>
+            </div>
+            <div class="weather-forecast-item">
+                <div class="day">Sat</div>
+                <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                <div class="temp">Night - 0°F</div>
+                <div class="temp">Day - 0°F</div>
+            </div>
+        </div>
+    </div>
+    <!-- Include the moment.js script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <!-- Include your JavaScript as an ES module -->
+    <script type="module" src="finalprj.js"></script>
+</body>
 </html>
