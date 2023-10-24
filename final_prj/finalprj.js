@@ -4,15 +4,15 @@ import { getWeatherData } from './weather.js';
 const timeElement = document.getElementById('time');
 const dateElement = document.getElementById('date');
 const timezone = document.getElementById('time-zone'); // Added the missing DOM element
-const countryEl = document.getElementById('country'); // Added the missing DOM element
-const currentWeatherItemsEl = document.getElementById('current-weather-items'); // Added the missing DOM element
-const currentTempEl = document.getElementById('current-temp');
-const weatherForecastEl = document.getElementById('weather-forecast');
+const countryElement = document.getElementById('country'); // Added the missing DOM element
+const currentWeatherItemsElement = document.getElementById('current-weather-items'); // Added the missing DOM element
+const currentTempElement = document.getElementById('current-temp');
+const weatherForecastElement = document.getElementById('weather-forecast');
 
 // Constants
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-const API_KEY = '49cc8c821cd2aff9af04c9f98c36eb74';
+const API_KEY = 'f604ee8e49e2f6240d6998fbd1f36678';
 
 // Function to update date and time
 function updateDateTime() {
@@ -34,9 +34,9 @@ function showWeatherData(data) {
     let { humidity, pressure, sunrise, sunset, wind_speed } = data.current;
 
     timezone.innerHTML = data.timezone;
-    countryEl.innerHTML = data.lat + 'N ' + data.lon + 'E';
+    countryElement.innerHTML = data.lat + 'N ' + data.lon + 'E';
 
-    currentWeatherItemsEl.innerHTML = `
+    currentWeatherItemsElement.innerHTML = `
         <h2>Today's Weather stats</h2>
         <div>-----------------------------------</div>
         <div class="weather-item">
@@ -62,9 +62,10 @@ function showWeatherData(data) {
     `;
 
     let otherDayForcast = '';
+    // this forms the template of each other days of the week 
     data.daily.forEach((day, idx) => {
         if (idx === 0) {
-            currentTempEl.innerHTML = `
+            currentTempElement.innerHTML = `
                 <img src="http://openweathermap.org/img/wn//${day.weather[0].icon}@4x.png" alt="weather icon" class="w-icon">
                 <div class="other">
                     <h2>Today's Temperature</h2>
@@ -85,10 +86,10 @@ function showWeatherData(data) {
         }
     });
 
-    weatherForecastEl.innerHTML = otherDayForcast;
+    weatherForecastElement.innerHTML = otherDayForcast;
 }
 
-setInterval(updateDateTime, 1000);
+setInterval(updateDateTime, 60000); // this give a 60 seconds to update from the api
 
 window.addEventListener('load', () => {
     // Initialize the page
